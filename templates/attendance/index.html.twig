@@ -16,6 +16,7 @@ body %}
               <th>Employee Name</th>
               <th>Description</th>
               <th>Workhours</th>
+              <th>Selfie</th>
             </tr>
             {% for key, item in data %}
             <tr>
@@ -26,6 +27,11 @@ body %}
               <td>{{ item.employee.fullname }}</td>
               <td>{{ item.description }}</td>
               <td>{{ item.workhours }} hours</td>
+              {% if item.selfie %}
+                <td><img width="200px" src={{"data:image/jpeg;base64,#{item.selfie}"}} />
+              {% else %}
+                <td>-</td>
+              {% endif %}
             </tr>
             {% endfor %}
           </table>
